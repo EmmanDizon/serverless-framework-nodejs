@@ -1,0 +1,32 @@
+createAuction:
+  handler: src/handlers/auctionController.createAuction
+  events:
+    - http:
+        method: POST
+        path: /auction/create
+
+getAuctions:
+  handler: src/handlers/auctionController.getAuctions
+  events:
+    - http:
+        method: GET
+        path: /auction/get
+
+getAuctionById:
+  handler: src/handlers/auctionController.getAuction
+  events:
+    - http:
+        method: GET
+        path: /auction/get_by_id/{id}
+
+placeBid:
+  handler: src/handlers/auctionController.placeBid
+  events:
+    - http:
+        method: PATCH
+        path: /auction/{id}/bid
+
+processAuctions:
+  handler: src/handlers/auctionController.process
+  #events:
+  #  - schedule: rate(1 minute)
